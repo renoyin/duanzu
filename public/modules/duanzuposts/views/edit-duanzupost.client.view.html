@@ -1,18 +1,58 @@
 <section data-ng-controller="DuanzupostsController" data-ng-init="findOne()">
     <div class="page-header">
-        <h1>Edit Duanzupost</h1>
+        <h1>编辑租房信息</h1>
     </div>
     <div class="col-md-12">
         <form class="form-horizontal" data-ng-submit="update()" novalidate>
             <fieldset>
-                <div class="form-group">
-                    <label class="control-label" for="name">Name</label>
+                
+                
+               <div class="form-group">
+                    <label class="control-label" for="title">标题</label>
                     <div class="controls">
-                        <input type="text" data-ng-model="duanzupost.name" id="name" class="form-control" placeholder="Name" required>
+                        <input type="text" data-ng-model="duanzupost.title" id="title" class="form-control">
                     </div>
                 </div>
                 <div class="form-group">
-                    <input type="submit" value="Update" class="btn btn-default">
+                    <label class="control-label" for="startDate">起租日期</label>
+                    <div class="controls">
+                        <input type="text" name="startDate" data-ng-model="duanzupost.startDate" id="startDate" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="endDate">结束日期</label>
+                    <div class="controls">
+                        <input type="text" name="endDate" data-ng-model="duanzupost.endDate" id="endDate" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="community">小区</label>
+                    <div class="controls">
+                        <input type="text" name="community" data-ng-model="duanzupost.community" id="community" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="price">价格</label>
+                    <div class="controls">
+                        <input type="text" name="price" data-ng-model="duanzupost.price" id="price" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="phone">联系电话</label>
+                    <div class="controls">
+                        <input type="text" name="phone" data-ng-model="duanzupost.phone" id="phone" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="description">描述</label>
+                    <div class="controls">
+                        <textarea name="description" data-ng-model="duanzupost.description" id="description" class="form-control" cols="30" rows="7"></textarea>
+                    </div>
+                </div>
+                
+                
+                <div class="form-group">
+                    <input type="submit" value="提交" class="btn btn-default">
                 </div>
 				<div data-ng-show="error" class="text-danger">
 					<strong data-ng-bind="error"></strong>

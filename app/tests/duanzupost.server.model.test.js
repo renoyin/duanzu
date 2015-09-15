@@ -39,7 +39,17 @@ describe('Duanzupost Model Unit Tests:', function() {
 
 	describe('Method Save', function() {
 		it('should be able to save without problems', function(done) {
-			return duanzupost.save(function(err) {
+			var duanzupost = new Duanzupost({
+                title: 'test title',
+                startDate: '2015-01-01',
+                endDate: '2015-01-01',
+                community: 'test',
+                price: '100',
+                phone: '12345678',
+                wechat: 'test',
+                description: 'test'
+            });
+            duanzupost.save(function(err) {
 				should.not.exist(err);
 				done();
 			});

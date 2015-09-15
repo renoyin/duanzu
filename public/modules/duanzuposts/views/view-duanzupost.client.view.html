@@ -1,21 +1,33 @@
 <section data-ng-controller="DuanzupostsController" data-ng-init="findOne()">
-	<div class="page-header">
-		<h1 data-ng-bind="duanzupost.name"></h1>
+	<div class="page-header text-center" style="border-bottom: none; padding-bottom: 0px;">
+		<h1 data-ng-bind="duanzupost.title"></h1>
 	</div>
+    <div class="col-md-8 col-md-offset-4">
+        <b>起租日期： </b>{{ duanzupost.startDate }} <br />
+        <b>结束日期： </b>{{ duanzupost.endDate }} <br />
+        <b>招租人： </b>{{ duanzupost.user.displayName }} <br />
+        <b>小区： </b>{{ duanzupost.community }} <br />
+        <b>价格： </b>{{ duanzupost.price | currency }} <br />
+        <b>联系电话： </b>{{ duanzupost.phone }} <br />
+        <b>简介： </b>{{ duanzupost.description }} <br />
+    </div>
+    
 	<div class="pull-right" data-ng-show="((authentication.user) && (authentication.user._id == duanzupost.user._id))">
 		<a class="btn btn-primary" href="/#!/duanzuposts/{{duanzupost._id}}/edit">
 			<i class="glyphicon glyphicon-edit"></i>
 		</a>
-		<a class="btn btn-primary" data-ng-click="remove();">
+		<a class="btn btn-primary" data-ng-click="remove()">
 			<i class="glyphicon glyphicon-trash"></i>
 		</a>
 	</div>
+
 	<small>
 		<em class="text-muted">
-			Posted on
+			发布于
 			<span data-ng-bind="duanzupost.created | date:'mediumDate'"></span>
 			by
 			<span data-ng-bind="duanzupost.user.displayName"></span>
 		</em>
 	</small>
+    
 </section>

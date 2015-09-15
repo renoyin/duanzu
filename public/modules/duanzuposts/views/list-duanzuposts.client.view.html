@@ -1,19 +1,34 @@
 <section data-ng-controller="DuanzupostsController" data-ng-init="find()">
     <div class="page-header">
-        <h1>Duanzuposts</h1>
+        <h1>招租信息一览</h1>
     </div>
-    <div class="list-group">
-        <a data-ng-repeat="duanzupost in duanzuposts" data-ng-href="#!/duanzuposts/{{duanzupost._id}}" class="list-group-item">
-			<small class="list-group-item-text">
-				Posted on
-				<span data-ng-bind="duanzupost.created | date:'medium'"></span>
-				by
-				<span data-ng-bind="duanzupost.user.displayName"></span>
-			</small>
-			<h4 class="list-group-item-heading" data-ng-bind="duanzupost.name"></h4>
-        </a>
+    
+    <div class="table-responsive">
+        <table class="table table-hover text-center">
+            <thead>
+                <tr>
+                    <th class="text-center">标题</th>
+                    <th class="text-center">起租日期</th>
+                    <th class="text-center">小区名</th>
+                    <th class="text-center">价格</th>
+                    <th class="text-center">招租人</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr data-ng-repeat="duanzupost in duanzuposts" data-ng-click="showPost(duanzupost)">
+                    <td>{{ duanzupost.title }}</td>
+                    <td>{{ duanzupost.startDate }}</td>
+                    <td>{{ duanzupost.community }}</td>
+                    <td>{{ duanzupost.price | currency }}</td>
+                    <td>{{ duanzupost.user.displayName }}</td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
     </div>
+    
     <div class="alert alert-warning text-center" data-ng-hide="!duanzuposts.$resolved || duanzuposts.length">
-    	No Duanzuposts yet, why don't you <a href="/#!/duanzuposts/create">create one</a>?
+    	暂无招租信息， 点击<a href="/#!/duanzuposts/create">新建一个</a>吧～
     </div>
 </section>

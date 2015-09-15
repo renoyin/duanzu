@@ -7,6 +7,13 @@ var mongoose = require('mongoose'),
 	Schema = mongoose.Schema;
 
 /**
+ * Validation
+ */
+function validateLength(content) {
+    return content.length <= 40;
+}
+
+/**
  * Duanzupost Schema
  */
 var DuanzupostSchema = new Schema({
@@ -15,7 +22,8 @@ var DuanzupostSchema = new Schema({
         type: String,
         trim: true,
         default: '',
-        validate: [validateProperty, '请填写标题']
+        required: '请填写标题',
+        validate: [validateLength, 'title must be 40 characters in length or less']
     },
     startDate: {
         type: String,
@@ -31,31 +39,26 @@ var DuanzupostSchema = new Schema({
         type: String,
         trim: true,
         default: '',
-        validate: [validateProperty, '请填写小区名']
+        required: '请填写小区名',
+        validate: [validateLength, 'must be 40 characters in length or less']
     },
     price: {
         type: String,
         trim: true,
         default: '',
-        validate: [validateProperty, '请填写价格']
+        required: '请填写价格'
     },
     phone: {
         type: String,
         trim: true,
         default: '',
-        validate: [validateProperty, '请填写手机号码']
-    },
-    wechat: {
-        type: String,
-        trim: true,
-        default: '',
-        validate: [validateProperty, '请填写微信号']
+        required: '请填写手机号码'
     },
     description: {
         type: String,
         trim: true,
         default: '',
-        validate: [validateProperty, '请填写描述']
+        required: '请填写描述'
     },
 	created: {
 		type: Date,

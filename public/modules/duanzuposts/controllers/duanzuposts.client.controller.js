@@ -9,7 +9,13 @@ angular.module('duanzuposts').controller('DuanzupostsController', ['$scope', '$s
 		$scope.create = function() {
 			// Create new Duanzupost object
 			var duanzupost = new Duanzuposts ({
-				name: this.name
+				title: this.title,
+                startDate: this.startDate,
+                endDate: this.endDate,
+                community: this.community,
+                price: this.price,
+                phone: this.phone,
+                description: this.description
 			});
 
 			// Redirect after save
@@ -17,7 +23,8 @@ angular.module('duanzuposts').controller('DuanzupostsController', ['$scope', '$s
 				$location.path('duanzuposts/' + response._id);
 
 				// Clear form fields
-				$scope.name = '';
+				$scope.duanzupost = null;
+                
 			}, function(errorResponse) {
 				$scope.error = errorResponse.data.message;
 			});
@@ -62,5 +69,10 @@ angular.module('duanzuposts').controller('DuanzupostsController', ['$scope', '$s
 				duanzupostId: $stateParams.duanzupostId
 			});
 		};
+        
+        // show post when clicking a row
+        $scope.showPost = function(duanzupost) {
+            $location.path('/duanzuposts/' + duanzupost._id);
+        };
 	}
 ]);
