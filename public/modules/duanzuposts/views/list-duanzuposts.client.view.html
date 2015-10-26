@@ -1,8 +1,13 @@
 <section data-ng-controller="DuanzupostsController" data-ng-init="find()">
-    <div class="page-header">
-        <h1>招租信息一览</h1>
-    </div>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
+    <div class="page-header">
+        <h1>招租信息一览
+        <a href="/#!/duanzuposts/create"><i class="material-icons" style="font-size:30px; float:right; margin:13px;">add_circle_outline</i></a>
+        </h1>
+    </div> <!--<a href="/#!/duanzuposts/create" /a --> 
+    
+
     <div class="table-responsive">
         <table class="table table-hover text-center">
             <thead>
@@ -28,7 +33,7 @@
         </table>
     </div>
     
-    <div class="alert alert-warning text-center" data-ng-hide="!duanzuposts.$resolved || duanzuposts.length">
-    	暂无招租信息， 点击<a href="/#!/duanzuposts/create">新建一个</a>吧～
+    <div class="alert alert-warning text-center" >
+    	 点击<a href="/#!/duanzuposts/create">新建</a>一个招租信息吧～
     </div>
 </section>
