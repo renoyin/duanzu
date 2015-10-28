@@ -10,6 +10,6 @@
 .ng-invalid.ng-dirty {
 	border-color: #FA787E;
 }
-.ng-valid.ng-dirty {
+.ng-valid.ng-dirty:not(.listSearchBar) {
 	border-color: #78FA89;
 }
