@@ -1,9 +1,13 @@
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link ref="stylesheet" href="module/duanzuposts/css/duanzuposts.css">
+
 <section data-ng-controller="DuanzupostsController" data-ng-init="find()">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    
     <div class="page-header">
         <h1>招租信息一览
-        <a href="/#!/duanzuposts/create"><i class="material-icons" style="font-size:30px; float:right; margin:13px;">add_circle_outline</i></a>
+
+   
+        <a href="/#!/duanzuposts/create"><i class="material-icons addPostButton">add_circle_outline</i></a>
+             <input id="listSearchBar" type="text" ng-model="searchKeyword" class="listSearchBar">
         </h1>
     </div> <!--<a href="/#!/duanzuposts/create" /a --> 
     
@@ -21,7 +25,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr data-ng-repeat="duanzupost in duanzuposts" data-ng-click="showPost(duanzupost)">
+                <tr data-ng-repeat="duanzupost in duanzuposts | filter: searchKeyword" data-ng-click="showPost(duanzupost)">
                     <td>{{ duanzupost.title }}</td>
                     <td>{{ duanzupost.startDate }}</td>
                     <td>{{ duanzupost.community }}</td>

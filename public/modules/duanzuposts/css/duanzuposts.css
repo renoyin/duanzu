@@ -1,0 +1,18 @@
+
+
+.material-icons.addPostButton {
+	float:right; 
+	margin-left:13px;
+	font-size:34px;
+}
+
+
+.listSearchBar {
+	float:right;
+	font-size: 25px;	
+	
+}
+
+.listSearchBar.ng-valid.ng-dirty {
+	border-color:#DFDFDF;
+}
