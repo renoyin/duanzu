@@ -13,6 +13,10 @@ function validateLength(content) {
     return content.length <= 40;
 }
 
+function validatePriceLength(content) {
+    return (content.length >= 3 && content.length <= 4); 
+}
+
 /**
  * Duanzupost Schema
  */
@@ -46,7 +50,8 @@ var DuanzupostSchema = new Schema({
         type: String,
         trim: true,
         default: '',
-        required: '请填写价格'
+        required: '请填写价格',
+        validate: [validatePriceLength, 'price must be 3-4 digits']
     },
     phone: {
         type: String,

@@ -1,10 +1,18 @@
 
+<!-- <script src="https://code.angularjs.org/1.3.0/angular-messages.js"></script> -->
+
+<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/0.11.2/angular-material.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0/angular-animate.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0/angular-aria.min.js"></script>
+
+
+
 <section data-ng-controller="DuanzupostsController">
     <div class="page-header">
         <h1>New Duanzupost</h1>
     </div>
     <div class="col-md-12">
-        <form class="form-horizontal" data-ng-submit="create()" novalidate>
+        <form name="duanzuPostForm" class="form-horizontal" data-ng-submit="create()" novalidate>
             <fieldset>
                 <div class="form-group">
                     <label class="control-label" for="name">标题</label>
@@ -32,9 +40,22 @@
                 </div>
                 <div class="form-group">
                     <label class="control-label" for="name">价格</label>
-                    <div class="controls">
-                        <input type="text" name="price" data-ng-model="price" id="price" class="form-control" placeholder="请填写租金" required></textarea>
-                    </div>
+                <!--     <div class="controls">
+                        <input type="number" ng-minlength="3" ng-maxlength="4" name="price" data-ng-model="price" id="price" class="form-control" placeholder="请填写租金" required>
+                     
+
+
+                        <div ng-messages="duanzuPostForm.price.$error">
+                     
+                           <div ng-message="required">You forgot to enter your price ...</div>
+
+                           
+                           <div ng-message="minlength">Your price is too short...</div>
+
+                           <div ng-message="maxlength">Your price is too long...</div>
+
+                         </div>
+                    </div> -->
                 </div>
                 <div class="form-group">
                     <label class="control-label" for="name">联系电话</label>
@@ -52,10 +73,41 @@
                 <div class="form-group">
                     <input type="submit" class="btn btn-default">
                 </div>
-				<div data-ng-show="error" class="text-danger">
+			   <div data-ng-show="error" class="text-danger">
 					<strong data-ng-bind="error"></strong>
-				</div>
+				</div> 
             </fieldset>
         </form>
     </div>
+
+  <!--   <form name="userForm">
+  <div class="field">
+    <label for="emailAddress">Enter your email address:</label>
+    <input type="email"
+           name="emailAddress"
+           ng-model="data.email"
+           ng-minlength="5"
+           ng-maxlength="30"
+           required />
+
+    <div ng-messages="userForm.emailAddress.$error">
+
+      <div ng-message="required">You forgot to enter your email address...</div>
+
+    
+      <div ng-message="minlength">Your email address is too short...</div>
+
+
+      <div ng-message="maxlength">Your email address is too long...</div>
+
+      <div ng-message="email">You did not enter your email address correctly...</div>
+    </div>
+  </div>
+
+  <input type="submit" />
+</form> -->
+
+
+
+
 </section>
