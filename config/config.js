@@ -49,7 +49,7 @@ module.exports.getGlobbedFiles = function(globPatterns, removeRoot) {
 			});
 		}
 	}
-
+	
 	return output;
 };
 
