@@ -4,7 +4,19 @@
 angular.module('duanzuposts').controller('DuanzupostsController', ['$scope', '$stateParams', '$location', 'Authentication', 'Duanzuposts',
 	function($scope, $stateParams, $location, Authentication, Duanzuposts) {
 		$scope.authentication = Authentication;
+		
+		//  $scope.trimDate = function(dateStr) {
+  //       	return String(dateStr).substring(0, String(dateStr).indexOf('T'));
+  //       };
+		
+		// $scope.formatDate = function() {
+		// 	var start = $scope.startDate;
+		// 	if(!($scope.startDate === '' || typeof($scope.startDate) === 'undefined'))
+		// 		$scope.startDate = $scope.trimDate(start);
+		// };
 
+		// $scope.formatDate();
+   
 		// Create new Duanzupost
 		$scope.create = function() {
 			// Create new Duanzupost object
@@ -74,5 +86,9 @@ angular.module('duanzuposts').controller('DuanzupostsController', ['$scope', '$s
         $scope.showPost = function(duanzupost) {
             $location.path('/duanzuposts/' + duanzupost._id);
         };
+
+
+       
+       
 	}
 ]);
