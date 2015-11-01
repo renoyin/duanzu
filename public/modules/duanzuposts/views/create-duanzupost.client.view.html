@@ -9,6 +9,11 @@
 <style>
 .md-datepicker-input-mask {
     display:none;
+
+}
+
+.md-content {
+    display: initial;
 }
 
 .form-datepicker {
@@ -56,18 +61,21 @@ input[type="number"]::-webkit-inner-spin-button {
                     <label class="control-label" for="name"><span class="requiredStar">*</span>起租日期</label>
                     <div ng-cloak="">
                         <md-content>
-                          <md-datepicker data-ng-model="startDate" md-placeholder="Enter date"></md-datepicker>
+                          <md-datepicker name="startDate" data-ng-model="startDateLong" md-placeholder="Enter date" ng-change="formatDate('start')" required></md-datepicker>
                         </md-content>
+                        
                     </div>
-                    
+                     
                 </div>
                 <div class="form-group form-datepicker">
                     <label class="control-label" for="name"><span class="requiredStar">*</span>结束日期</label>
                     <div ng-cloak="">
                         <md-content>
-                          <md-datepicker data-ng-model="endDate" md-placeholder="Enter date"></md-datepicker>
+                          <md-datepicker name="endDate" data-ng-model="endDateLong" md-placeholder="Enter date" ng-change="formatDate('end')" required></md-datepicker>
                         </md-content>
+                
                     </div>
+                    
                    
     
                 </div>
