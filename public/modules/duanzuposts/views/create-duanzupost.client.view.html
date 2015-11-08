@@ -42,7 +42,7 @@ input[type="number"]::-webkit-inner-spin-button {
 
 <section data-ng-controller="DuanzupostsController">
     <div class="page-header">
-        <h1>新短租信息 <span class="requiredStar">           * 为必填项</span></h1>
+        <h1>新短租信息 <span class="requiredStar">  * 为必填项</span></h1>
     </div>
     <div class="col-md-12">
         <form name="duanzuPostForm" class="form-horizontal" data-ng-submit="create()" novalidate>
@@ -52,7 +52,7 @@ input[type="number"]::-webkit-inner-spin-button {
                     <div class="controls">
                         <input type="text" name="title" data-ng-model="title" id="title" class="form-control" placeholder="请填写标题" required>
                        <div ng-messages="duanzuPostForm.title.$error" ng-if="duanzuPostForm.title.$dirty">
-                           <div class="text-danger" ng-message="required">请填写小区名称</div>
+                           <div class="text-danger" ng-message="required">请填写标题</div>
                         </div>
                     </div>
                 </div>
@@ -92,7 +92,7 @@ input[type="number"]::-webkit-inner-spin-button {
                 <div class="form-group">
                     <label class="control-label" for="name">价格<span class="requiredStar"> *</span></label>
                     <div class="controls">
-                        <input type="number" ng-minlength="3" ng-maxlength="4" name="price" data-ng-model="price" id="price" class="form-control" placeholder="100~9999" required>
+                        <input type="number" ng-minlength="3" ng-maxlength="4" name="price" data-ng-model="price" id="price" class="form-control" placeholder="$100~9999" required>
                         <div ng-messages="duanzuPostForm.price.$error" ng-if="duanzuPostForm.price.$dirty">
                            <div class="text-danger" ng-message="required">请填写价格</div>
                            <div class="text-danger" ng-message="minlength">价格太低（3－4位数）</div>
