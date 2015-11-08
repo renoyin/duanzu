@@ -1,6 +1,29 @@
 'use strict';
 
+
 // Duanzuposts controller
+
+// a directive overwriting the input attribute. (only when ngModel is used)
+angular.module('duanzuposts').directive('input', [function() {
+    return {
+        restrict: 'E',
+        require: '?ngModel',
+        link: function(scope, element, attrs, ngModel) {
+            if (
+                   'undefined' !== typeof attrs.type && 'number' === attrs.type && ngModel
+            ) {
+                ngModel.$formatters.push(function(modelValue) {
+                    return Number(modelValue);
+                });
+
+                ngModel.$parsers.push(function(viewValue) {
+                    return Number(viewValue);
+                });
+            }
+        }
+    };
+}]);
+
 angular.module('duanzuposts').controller('DuanzupostsController', ['$scope', '$stateParams', '$location', 'Authentication', 'Duanzuposts',
 	function($scope, $stateParams, $location, Authentication, Duanzuposts) {
 		$scope.authentication = Authentication;
