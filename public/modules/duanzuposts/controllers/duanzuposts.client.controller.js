@@ -50,7 +50,8 @@ angular.module('duanzuposts').controller('DuanzupostsController', ['$scope', '$s
                 community: this.community,
                 price: this.price,
                 phone: this.phone,
-                description: this.description
+                description: this.description,
+                wechat: ''
 			});
 
 			// Redirect after save
