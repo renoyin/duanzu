@@ -1,9 +1,16 @@
 
 
 .material-icons.addPostButton {
-	float:right; 
-	margin-left:13px;
-	font-size:34px;
+
+ 	position: relative;
+    left: 6px;
+    width: 300px;
+    top: 6px;
+
+	/*margin-left: 7px;
+	margin-top: 15px;
+	margin-bottom: 15px;*/
+	font-size: 36px;
 }
 
 
