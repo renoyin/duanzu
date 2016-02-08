@@ -59,6 +59,11 @@ var DuanzupostSchema = new Schema({
         default: '',
         required: '请填写手机号码'
     },
+    wechat: {
+        type: String,
+        trim: true,
+        default: '',
+    },
     description: {
         type: String,
         trim: true,

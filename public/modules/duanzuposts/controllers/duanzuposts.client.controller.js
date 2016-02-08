@@ -51,8 +51,8 @@ angular.module('duanzuposts').controller('DuanzupostsController', ['$scope', '$s
                 price: this.price,
                 phone: this.phone,
                 description: this.description,
-                wechat: ''
-			});
+                wechat: this.wechat
+            });
 
 			// Redirect after save
 			duanzupost.$save(function(response) {
