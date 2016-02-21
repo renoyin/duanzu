@@ -29,6 +29,9 @@ angular.module('duanzuposts').controller('DuanzupostsController', ['$scope', '$s
 		$scope.authentication = Authentication;
 		
 
+		$scope.sortType = 'title';
+		$scope.sortReverse = false;
+
 
    		$scope.formatDate = function(type){
    			if(type === 'start') {
