@@ -1,4 +1,4 @@
 'use strict';
 
 // Use Applicaion configuration module to register a new module
-ApplicationConfiguration.registerModule('core',['ngMessages', 'ngMaterial']);
+ApplicationConfiguration.registerModule('core',['ngMessages', 'ngMaterial', 'ui.bootstrap']);
