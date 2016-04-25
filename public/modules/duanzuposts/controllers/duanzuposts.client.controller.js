@@ -112,15 +112,33 @@ angular.module('duanzuposts').controller('DuanzupostsController', ['$scope', '$s
 
 		// Find a list of Duanzuposts
 		$scope.find = function() {
-			$scope.duanzuposts = Duanzuposts.query();  
+			$scope.duanzuposts = Duanzuposts.query(function (result) {
+				console.log(JSON.stringify(result));
+				$scope.totalItems = result.length;  
+				console.log($scope.totalItems);
+				// $scope.totalItems = 120;  
+				// ^^^ the value is 0 here, thus pagination only shows one page
+				// console.log($scope.duanzuposts) // [$promise: Promise, $resolved: false]
+				// $scope.viewby = 20;
+				$scope.currentPage = 1;
+				$scope.itemsPerPage = 20;
+	 			$scope.maxSize = Math.ceil($scope.totalItems/$scope.itemsPerPage); 
+	 			console.log($scope.maxSize);
+			});  
 			// below are for pagination
-			$scope.totalItems = $scope.duanzuposts.length;  
-			// ^^^ the value is 0 here, thus pagination only shows one page
-			console.log($scope.duanzuposts) // [$promise: Promise, $resolved: false]
-			$scope.viewby = 5;
-			$scope.currentPage = 1;
-			$scope.itemsPerPage = $scope.viewby;
- 			$scope.maxSize = 5; //Number of pager buttons to show
+			// setTimeout(function(){
+			// 	$scope.totalItems = $scope.duanzuposts.length;  
+			// 	// $scope.totalItems = 120;  
+			// 	// ^^^ the value is 0 here, thus pagination only shows one page
+			// 	console.log($scope.duanzuposts) // [$promise: Promise, $resolved: false]
+			// 	$scope.viewby = 10;
+			// 	$scope.currentPage = 1;
+			// 	$scope.itemsPerPage = $scope.viewby;
+ 		// 		$scope.maxSize = $scope.totalItems/$scope.itemsPerPage; //Number of pager buttons to show
+ 		// 	}, 2000);
+			
+			//Number of pager buttons to show
+			
 
 	};
 

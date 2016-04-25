@@ -39,7 +39,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr data-ng-repeat="duanzupost in duanzuposts.slice(((currentPage-1)*itemsPerPage), ((currentPage)*itemsPerPage)) | filter: searchKeyword | orderBy:sortType:sortReverse" data-ng-click="showPost(duanzupost)">
+                <tr data-ng-repeat="duanzupost in duanzuposts.slice(((currentPage - 1) * itemsPerPage), ((currentPage)*itemsPerPage)) | filter: searchKeyword | orderBy:sortType:sortReverse" data-ng-click="showPost(duanzupost)">
                     <td>{{ duanzupost.title }}</td>
                     <td>{{ duanzupost.startDate }}</td>
                     <td>{{ duanzupost.community }}</td>
