@@ -115,15 +115,13 @@ angular.module('duanzuposts').controller('DuanzupostsController', ['$scope', '$s
 			$scope.duanzuposts = Duanzuposts.query(function (result) {
 				console.log(JSON.stringify(result));
 				$scope.totalItems = result.length;  
-				console.log($scope.totalItems);
 				// $scope.totalItems = 120;  
 				// ^^^ the value is 0 here, thus pagination only shows one page
 				// console.log($scope.duanzuposts) // [$promise: Promise, $resolved: false]
 				// $scope.viewby = 20;
 				$scope.currentPage = 1;
 				$scope.itemsPerPage = 20;
-	 			$scope.maxSize = Math.ceil($scope.totalItems/$scope.itemsPerPage); 
-	 			console.log($scope.maxSize);
+	 			$scope.maxSize = 10;
 			});  
 			// below are for pagination
 			// setTimeout(function(){
