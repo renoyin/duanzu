@@ -50,6 +50,8 @@ angular.module('duanzuposts').controller('DuanzupostsController', ['$scope', '$s
 			if(type === 'start') {
 				if(typeof($scope.startDateLong) !== 'undefined') 
 					$scope.startDate = $scope.startDateLong.getMonth()+1 + '/' + $scope.startDateLong.getDate() + '/' + $scope.startDateLong.getFullYear();
+				console.log("startDateLong type: " + typeof($scope.startDateLong))
+				console.log($scope.startDateLong)
 			}
 			if(type === 'end') {
 				if(typeof($scope.endDateLong) !== 'undefined') 
