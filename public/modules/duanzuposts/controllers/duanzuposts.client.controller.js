@@ -24,8 +24,9 @@ angular.module('duanzuposts').directive('input', [function() {
 };
 }]);
 
-angular.module('duanzuposts').controller('DuanzupostsController', ['$scope', '$stateParams', '$location', 'Authentication', 'Duanzuposts',
-	function($scope, $stateParams, $location, Authentication, Duanzuposts) {
+angular.module('duanzuposts').controller('DuanzupostsController', ['$scope', 
+	'$stateParams', '$location', 'Authentication', 'Duanzuposts', '$mdSidenav',
+	function($scope, $stateParams, $location, Authentication, Duanzuposts, $mdSidenav) {
 		$scope.authentication = Authentication;
 		
 		// sorting variables
@@ -115,7 +116,7 @@ angular.module('duanzuposts').controller('DuanzupostsController', ['$scope', '$s
 		// Find a list of Duanzuposts
 		$scope.find = function() {
 			$scope.duanzuposts = Duanzuposts.query(function (result) {
-				console.log(JSON.stringify(result));
+				//console.log(JSON.stringify(result));
 				$scope.totalItems = result.length;  
 				// $scope.totalItems = 120;  
 				// ^^^ the value is 0 here, thus pagination only shows one page
@@ -154,7 +155,22 @@ angular.module('duanzuposts').controller('DuanzupostsController', ['$scope', '$s
         	$location.path('/duanzuposts/' + duanzupost._id);
         };
 
+		function buildToggler(navID) {
+      		return function() {
+        		$mdSidenav(navID).toggle().then(function () {
+            		console.log("toggle " + navID + " is done");
+          		});
+      		}
+   		}
 
+        $scope.toggleRight = buildToggler('right');
+    	$scope.isOpenRight = function(){
+      		return $mdSidenav('right').isOpen();
+    	};
+
+    	$scope.close = function () {
+      		$mdSidenav('right').close()
+    	};
 
 
     }
